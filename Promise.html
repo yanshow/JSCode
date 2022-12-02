@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fetch('https://www.bilibili.com').then((res) => { console.log(res) })
+        isFinish = true
+        console.log(1);
+        let p1 = new Promise(function (resolve, reject) {
+            console.log(2)
+            if (isFinish) {
+                console.log('f')
+                resolve('ok')
+                console.log('123')
+            }
+            reject('so bad')
+
+            console.log(0)
+        })
+        console.log('p1', p1)
+        console.log(3)
+        console.log('p1', p1)
+        console.log('promise', p1.then((function (res) {
+            console.log(res, 2)
+        })))
+        p1.then(function (res) {
+            console.log(4)
+            console.log(res)
+        }).catch(function (err) {
+            console.log(5)
+            console.log(err);
+        }).finally(() => {
+            console.log('finish');
+        })
+
+        console.log(6);
+    </script>
+</body>
+
+</html>
